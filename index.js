@@ -35,7 +35,7 @@ conn.login(username, password, function (err, userInfo) {
   // Routes accessible only after successful connection
   // Get all records
   app.get('/api/leads', (req, res) => {
-    conn.query("select Id,FirstName,LastName,MobilePhone,Pan_Number__c, Aadhaar_Number__c, Email, Company, Loan_Type__c from Lead", (err, result) => {
+    conn.query("select Id,FirstName,LastName,MobilePhone,Pan_Number__c, Aadhaar_Number__c, Email, Company, Loan_Type__c,Lead_Id__c from Lead", (err, result) => {
       if (err) {
         res.send(err);
       } else {
