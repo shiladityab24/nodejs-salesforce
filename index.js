@@ -2,7 +2,7 @@ const express = require('express');
 const jsforce = require('jsforce');
 const bodyParser = require('body-parser');
 const app = express();
-const { PORT, SERVER_URL, SF_LOGIN_URL, SF_PASSWORD, SF_USERNAME } = require('./src/config');
+// const { PORT, SERVER_URL, SF_LOGIN_URL, SF_PASSWORD, SF_USERNAME } = require('./src/config');
 // Create a test API to check if the server is running
 app.get('/test', (req, res) => {
   res.json({ "success": true, "message": "server is running" });
@@ -109,5 +109,5 @@ conn.login(username, password, function (err, userInfo) {
 });
 
 app.listen(5000, () => {
-  console.log(`server is running on: ${SERVER_URL}`);
+  console.log(`server is running on: http://localhost:5000`);
 });
