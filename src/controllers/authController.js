@@ -1,0 +1,11 @@
+const express = require('express')
+const router = express.Router()
+const salesforceService = require('../services/salesforceService')
+router.get('/login', salesforceService.login)
+router.get('/callback', salesforceService.callback)
+router.post('/api/lead/create',salesforceService.leadCreation)
+router.post('/api/user/login',salesforceService.loginUser)
+router.get('/api/:username',salesforceService.dashboardDetails)
+router.post('/api/loanApplication/create',salesforceService.loanApplication)
+router.get('/api/ETB/:pan',salesforceService.checkETB)
+module.exports = router
