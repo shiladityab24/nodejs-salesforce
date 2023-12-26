@@ -75,7 +75,7 @@ const leadCreation = (req, res) => {
 const loginUser = (req, res) => {
     const conn = createConnection(res)
     const { userData } = req.body
-    conn.apex.post("/loginuserApi/", userData, function (err, result) {
+    conn.apex.post("/loginuserApi/", {userData}, function (err, result) {
         if (err) {
             res.status(500).json({ error: err.message });
         } else {
