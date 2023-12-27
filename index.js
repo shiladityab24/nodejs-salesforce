@@ -1,9 +1,17 @@
 const express = require('express')
 const jsforce = require('jsforce')
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express()
 const {PORT, SERVER_URL, SF_LOGIN_URL,SF_PASSWORD,SF_USERNAME} = require('./src/config')
 const authController = require('./src/controllers/authController')
+
+var corsOptions = {
+  origin: "http://localhost:3000"
+};
+
+
+app.use(cors(corsOptions));
 
 
 //create a test api to check if server is running
