@@ -3,7 +3,7 @@ const jsforce = require('jsforce')
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express()
-const {PORT, SERVER_URL, SF_LOGIN_URL,SF_PASSWORD,SF_USERNAME} = require('./src/config')
+const {SERVER_URL, SF_LOGIN_URL,SF_PASSWORD,SF_USERNAME} = require('./src/config')
 const authController = require('./src/controllers/authController')
 
 var corsOptions = {
@@ -67,7 +67,7 @@ app.get('/connection',(req,res)=> {
       });
 })
 
-
+const PORT = process.env.PORT || 3006;
 app.listen(PORT,()=>{
     console.log(`server is running on: ${SERVER_URL}`)
 })

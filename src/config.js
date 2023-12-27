@@ -1,6 +1,5 @@
 require('dotenv').config()
 module.exports={
-    PORT:process.env.PORT || 3006,
     SF_LOGIN_URL:process.env.SF_LOGIN_URL || 'https://login.salesforce.com',
     SERVER_URL:process.env.SERVER_URL || 'http://localhost:3006',
     SF_USERNAME:process.env.SF_USERNAME ||'username',
