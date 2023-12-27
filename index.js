@@ -13,10 +13,27 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
+//parse requests of content-type -application/json
+app.use(express.json());
+
+//parse requests of content-type - application/x-www-form-urlencoded
+app.use(express.urlencoded({extended: true}));
+
+const db = require("./app/models");
+
+//routes
+require('./app/routes/auth.routes')(app);
+
+
+db.sequelize.sync({force: true}).then(() => {
+    console.log('Drop and Resync Db');
+});
+
+
 
 //create a test api to check if server is running
 app.get('/',(req,res)=> {
-    res.json({"success": true, "message": "server is running"})
+    res.json({"success": true, "message": "server is running for signin and signup authentication and salesforce"})
 })
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
