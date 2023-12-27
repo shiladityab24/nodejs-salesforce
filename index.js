@@ -19,10 +19,10 @@ app.use(express.json());
 //parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({extended: true}));
 
-const db = require("./app/models");
+const db = require("./models");
 
 //routes
-require('./app/routes/auth.routes')(app);
+require('./routes/auth.routes')(app);
 
 
 db.sequelize.sync({force: true}).then(() => {
