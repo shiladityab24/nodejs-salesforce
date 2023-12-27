@@ -32,7 +32,7 @@ db.sequelize.sync({force: true}).then(() => {
 
 
 //create a test api to check if server is running
-app.get('/',(req,res)=> {
+app.get('/test',(req,res)=> {
     res.json({"success": true, "message": "server is running for signin and signup authentication and salesforce"})
 })
 app.use(bodyParser.urlencoded({extended:true}))
